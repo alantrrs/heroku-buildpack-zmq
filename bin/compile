@@ -35,4 +35,7 @@ npecho "zeromq  unpacked in $BUILD_DIR/$ZMQ_NAME"
 npecho "setting zeromq compile flags"
 
 export LDFLAGS=-L$BUILD_DIR/$ZMQ_NAME/$ZMQ_NAME/lib
-export CXXFLAGS=-I$BUILD_DIR/$ZMQ_NAME/$ZMQ_NAME/include
+
+# hack it? (http://stackoverflow.com/questions/28333458/add-include-dir-for-node-gyp)
+echo $CXX
+export CXX="$CXX -I$BUILD_DIR/$ZMQ_NAME/$ZMQ_NAME/include"
